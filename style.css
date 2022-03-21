@@ -6,11 +6,20 @@
 }
 
 body {
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   font-size: 1.2rem;
   margin: 0;
   box-sizing: border-box;
   min-height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
+  grid-gap: 20px;
+  align-items: center;
+  justify-items: center;
 }
 
 .header {
@@ -19,12 +28,19 @@ body {
   display: grid;
   align-items: center;
   justify-items: center;
+  grid-area: header;
+  width: 100%;
 }
 
 .header__title {
   font-size: 3rem;
   margin: 0;
-  font-family: 'Pacifico', cursive;
+  padding: 0.5em;
+  font-family: "Pacifico", cursive;
+}
+
+.nav {
+  grid-area: nav;
 }
 
 .nav__container {
@@ -37,12 +53,14 @@ body {
   padding: 12px 0 24px;
 }
 
-.nav__link, .nav__link--active {
+.nav__link,
+.nav__link--active {
   text-decoration: none;
   color: var(--primary);
   position: relative;
 }
-.nav__link::after, .nav__link--active::after {
+.nav__link::after,
+.nav__link--active::after {
   position: absolute;
   content: "";
   bottom: 0;
@@ -55,6 +73,10 @@ body {
 .nav__link--active {
   box-shadow: inset var(--highlight) 200px 0px 0px 1px;
   padding: 0 70px;
+}
+
+.img_card_container {
+  grid-area: main;
 }
 
 .img_card {
@@ -76,6 +98,19 @@ body {
   display: grid;
   align-items: center;
   justify-items: center;
+  grid-area: footer;
+}
+
+@media screen and (min-width: 415px) and (max-width: 1110px) {
+  .img_card__container {
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .img_card {
+    align-self: center;
+    justify-self: center;
+  }
 }
 
 @media screen and (max-width: 1100px) {
@@ -87,13 +122,47 @@ body {
     min-width: 300px;
     grid-template-columns: repeat(4, 1fr);
   }
-  .nav__link, .nav__link--active {
+  .nav__link,
+  .nav__link--active {
     text-decoration: underline;
   }
   .nav__link--active {
     padding: 0;
   }
-  .nav__link::after, .nav__link--active::after {
+  .nav__link::after,
+  .nav__link--active::after {
     display: none;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  body {
+    font-family: "Indie Flower", cursive;
+    font-size: 1.2rem;
+    margin: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "nav main"
+      "footer footer";
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 150px 1fr 10px;
+    grid-gap: 40px 10px;
+    align-items: start;
+    justify-items: center;
+  }
+
+  .img_card__container {
+    display: grid;
+    grid-gap: 40px 20px;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    justify-items: center;
+  }
+  .img_card {
+    align-self: center;
+    justify-self: center;
   }
 }
