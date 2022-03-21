@@ -101,7 +101,7 @@ body {
   grid-area: footer;
 }
 
-@media screen and (min-width: 415px) and (max-width: 1110px) {
+@media screen and (min-width: 415px) and (max-width: 1226px) {
   .img_card__container {
     display: grid;
     grid-gap: 40px;
@@ -113,7 +113,7 @@ body {
   }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1226px) {
   .header__title {
     font-size: 2rem;
   }
@@ -135,7 +135,7 @@ body {
   }
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1226px) {
   body {
     font-family: "Indie Flower", cursive;
     font-size: 1.2rem;
